@@ -7,6 +7,7 @@ interface IUsersRepository {
   findById(id: string): Promise<User>;
   removeById(id: string): Promise<void>;
   findByCpf(cpf: string): Promise<User>;
+  list(): Promise<User[]>;
 }
 
 export { IUsersRepository }
