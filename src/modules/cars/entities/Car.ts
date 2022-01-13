@@ -1,6 +1,12 @@
 import { v4 as uuidV4 } from "uuid"
-import { Column, CreateDateColumn, Entity, PrimaryColumn, OneToMany } from "typeorm"
-import { Store } from "../../store/entities/Store";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryColumn,
+  ManyToOne,
+} from "typeorm"
+import { User } from "../../account/entities/User";
 
 @Entity("cars")
 class Car {
@@ -18,8 +24,15 @@ class Car {
   chassis: string;
   @Column()
   price: number;
+  @Column()
+  status: number;
+  @CreateDateColumn()
+  updated_at: Date;
   @CreateDateColumn()
   created_at: Date;
+
+  @ManyToOne(() => User, user => user.id)
+  user: User;
 
   constructor() {
     if (!this.id) {

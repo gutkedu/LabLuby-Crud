@@ -1,5 +1,6 @@
 import { v4 as uuidV4 } from "uuid"
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryColumn } from "typeorm"
+import { Car } from "../../cars/entities/Car";
 
 @Entity("users")
 class User {
@@ -21,6 +22,9 @@ class User {
   isAdmin: boolean;
   @CreateDateColumn()
   created_at: Date;
+
+  @OneToMany(() => Car, car => car.id)
+  cars: Car[];
 
   constructor() {
     if (!this.id) {

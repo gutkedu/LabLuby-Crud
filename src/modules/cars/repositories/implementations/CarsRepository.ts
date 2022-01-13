@@ -1,0 +1,7 @@
+
+
+class CarRepository {
+
+}
+
+export { CarRepository }

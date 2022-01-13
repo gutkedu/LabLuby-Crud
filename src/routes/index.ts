@@ -4,7 +4,7 @@ import { authenticateRoutes } from "./authenticate.routes";
 
 const router = Router();
 
-router.use("/users", usersRoutes);
+router.use("/employees", usersRoutes);
 router.use(authenticateRoutes);
 
 export { router }

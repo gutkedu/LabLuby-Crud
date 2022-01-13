@@ -20,9 +20,15 @@ const updateUserAvatarController = new UpdateUserAvatarController();
 
 usersRoutes.post("/", createUserController.handle);
 
-usersRoutes.get("/", listUsersController.handle);
+usersRoutes.get("/",
+  ensureAuthentication,
+  listUsersController.handle
+);
 
-usersRoutes.delete("/", removeUserController.handle);
+usersRoutes.delete("/",
+  ensureAuthentication,
+  removeUserController.handle
+);
 
 usersRoutes.patch("/avatar",
   ensureAuthentication,

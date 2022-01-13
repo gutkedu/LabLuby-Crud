@@ -6,6 +6,7 @@ interface ICreateCarDTO {
   chassis: string;
   price: number;
   id?: string;
+  status: number;
 }
 
 export { ICreateCarDTO }
