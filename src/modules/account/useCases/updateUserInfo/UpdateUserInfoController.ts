@@ -1,0 +1,7 @@
+
+
+class UpdateUserInfoController {
+
+}
+
+export { UpdateUserInfoController }

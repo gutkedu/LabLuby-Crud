@@ -1,6 +1,5 @@
 import { v4 as uuidV4 } from "uuid"
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryColumn } from "typeorm"
-import { Store } from "../../store/entities/Store";
 
 @Entity("users")
 class User {
