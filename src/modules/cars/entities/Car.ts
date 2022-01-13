@@ -1,25 +1,23 @@
 import { v4 as uuidV4 } from "uuid"
-import { Column, CreateDateColumn, Entity, OneToMany, PrimaryColumn } from "typeorm"
+import { Column, CreateDateColumn, Entity, PrimaryColumn, OneToMany } from "typeorm"
 import { Store } from "../../store/entities/Store";
 
-@Entity("users")
-class User {
+@Entity("cars")
+class Car {
   @PrimaryColumn()
   id?: string;
   @Column()
-  cpf: string;
+  brand: string;
   @Column()
-  name: string;
+  model: string;
   @Column()
-  email: string;
+  year: number;
   @Column()
-  avatar?: string;
+  km: number;
   @Column()
-  bio?: string;
+  chassis: string;
   @Column()
-  password: string;
-  @Column()
-  isAdmin: boolean;
+  price: number;
   @CreateDateColumn()
   created_at: Date;
 
@@ -30,4 +28,5 @@ class User {
   }
 }
 
-export { User }
+export { Car }
+
