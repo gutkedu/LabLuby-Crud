@@ -21,6 +21,8 @@ class User {
   @Column()
   isAdmin: boolean;
   @CreateDateColumn()
+  updated_at: Date;
+  @CreateDateColumn()
   created_at: Date;
 
   @OneToMany(() => Car, car => car.id)

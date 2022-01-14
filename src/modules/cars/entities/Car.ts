@@ -23,9 +23,11 @@ class Car {
   @Column()
   chassis: string;
   @Column()
+  color: string;
+  @Column()
   price: number;
   @Column()
-  status: number;
+  status: string;
   @CreateDateColumn()
   updated_at: Date;
   @CreateDateColumn()

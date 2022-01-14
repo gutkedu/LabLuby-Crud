@@ -4,9 +4,10 @@ interface ICreateCarDTO {
   year: number;
   km: number;
   chassis: string;
+  color: string;
   price: number;
   id?: string;
-  status: number;
+  status: string;
 }
 
 export { ICreateCarDTO }
