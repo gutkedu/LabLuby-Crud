@@ -50,6 +50,11 @@ class CarsRepository implements ICarsRepository {
     return car;
   }
 
+  async findByStatus(status: string): Promise<Car> {
+    const car = await this.repository.findOne({ status });
+    return car;
+  }
+
 }
 
 export { CarsRepository }

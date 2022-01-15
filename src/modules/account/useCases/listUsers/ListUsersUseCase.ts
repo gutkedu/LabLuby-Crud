@@ -3,7 +3,6 @@ import { IUsersRepository } from "../../repositories/IUserRepository";
 import { AppError } from "../../../../errors/AppError";
 import { User } from "../../entities/User";
 
-
 @injectable()
 class ListUsersUseCase {
   constructor(
