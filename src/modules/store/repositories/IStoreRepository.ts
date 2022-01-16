@@ -1,0 +1,6 @@
+
+interface IStoreRepository {
+
+}
+
+export { IStoreRepository }

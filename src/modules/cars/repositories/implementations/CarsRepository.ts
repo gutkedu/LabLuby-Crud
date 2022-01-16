@@ -1,7 +1,7 @@
 import { ICreateCarDTO } from "../../dtos/ICreateCarDTO";
 import { Car } from "../../entities/Car";
 import { ICarsRepository } from "../ICarsRepository";
-import { getRepository, Repository } from "typeorm";
+import { Equal, getRepository, Repository } from "typeorm";
 
 class CarsRepository implements ICarsRepository {
   private repository: Repository<Car>;
@@ -50,8 +50,24 @@ class CarsRepository implements ICarsRepository {
     return car;
   }
 
-  async findByStatus(status: string): Promise<Car> {
-    const car = await this.repository.findOne({ status });
+  async findStatusSold(status: string): Promise<Car[]> {
+    const car = await this.repository.find({
+      status: Equal("Sold"),
+    })
+    return car;
+  }
+
+  async findStatusAvailable(status: string): Promise<Car[]> {
+    const car = await this.repository.find({
+      status: Equal("Available"),
+    })
+    return car;
+  }
+
+  async findStatusReserved(status: string): Promise<Car[]> {
+    const car = await this.repository.find({
+      status: Equal("Reserved"),
+    });
     return car;
   }
 

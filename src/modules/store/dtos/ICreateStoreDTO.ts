@@ -1,0 +1,5 @@
+interface ICreateStoreDTO {
+
+}
+
+export { ICreateStoreDTO }

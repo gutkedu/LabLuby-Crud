@@ -13,31 +13,35 @@ export class CreateCars1642108853663 implements MigrationInterface {
                     },
                     {
                         name: "brand",
-                        type: "string"
+                        type: "varchar"
                     },
                     {
                         name: "model",
-                        type: "string"
+                        type: "varchar"
                     },
                     {
                         name: "year",
-                        type: "number"
+                        type: "int"
                     },
                     {
                         name: "km",
-                        type: "number"
+                        type: "int"
                     },
                     {
                         name: "chassis",
-                        type: "string"
+                        type: "varchar"
                     },
                     {
                         name: "price",
-                        type: "number"
+                        type: "int"
                     },
                     {
                         name: "status",
-                        type: "string"
+                        type: "varchar"
+                    },
+                    {
+                        name: "color",
+                        type: "varchar"
                     },
                     {
                         name: "updated_at",

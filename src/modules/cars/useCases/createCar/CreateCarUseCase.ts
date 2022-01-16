@@ -18,14 +18,13 @@ class CreateCarUseCase {
     chassis,
     color,
     price,
-    status,
-    id,
+    status
   }: ICreateCarDTO): Promise<void> {
-    const carAlreadyExist = await this.carsRepository.findById(id);
+    //const carAlreadyExist = await this.carsRepository.findById(id);
 
-    if (carAlreadyExist) {
-      throw new AppError("Car already exist!");
-    }
+    // if (carAlreadyExist) {
+    //   throw new AppError("Car already exist!");
+    // }
 
     await this.carsRepository.create({
       brand,

@@ -33,8 +33,8 @@ class Car {
   @CreateDateColumn()
   created_at: Date;
 
-  @ManyToOne(() => User, user => user.id)
-  user: User;
+  //@ManyToOne(() => User, user => user.id)
+  //user: User;
 
   constructor() {
     if (!this.id) {

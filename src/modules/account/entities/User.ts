@@ -25,8 +25,8 @@ class User {
   @CreateDateColumn()
   created_at: Date;
 
-  @OneToMany(() => Car, car => car.id)
-  cars: Car[];
+  // @OneToMany(() => Car, car => car.id)
+  //cars: Car[];
 
   constructor() {
     if (!this.id) {
