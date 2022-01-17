@@ -9,7 +9,7 @@
 ### Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) e [Docker](https://www.docker.com/) com Docker Composer.
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [Yarn](https://yarnpkg.com/) e [Docker](https://www.docker.com/) com Docker Composer.
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
 ### 🎲 Rodando o Back End (servidor)
@@ -19,10 +19,10 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 $ git clone <https://github.com/
 
 #Instalar as dependencias com yarn
-$yarn install
+$ yarn install
 
 #No docker, utilizar o comando
-$docker-compose up -d
+$ docker-compose up -d
 
 #O banco de dados postgres inicializara na porta 5432.
 # O servidor inciará na porta:4444 - acesse <http://localhost:4444>

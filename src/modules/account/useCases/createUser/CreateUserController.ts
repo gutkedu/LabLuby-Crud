@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { CreateUserUseCase } from "./CreateUserUseCase";
 import { container } from "tsyringe";
+import { validate } from "uuid";
 
 class CreateUserController {
   async handle(request: Request, response: Response): Promise<Response> {

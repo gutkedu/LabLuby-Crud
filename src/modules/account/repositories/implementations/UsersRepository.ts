@@ -3,6 +3,8 @@ import { IUsersRepository } from "../IUserRepository";
 import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
 import { IUpdateUserDTO } from "../../dtos/IUpdateUserDTO";
 import { User } from "../../entities/User";
+import { validate } from "class-validator";
+import { AppError } from "../../../../errors/AppError";
 
 class UsersRepository implements IUsersRepository {
   private repository: Repository<User>;
@@ -29,7 +31,16 @@ class UsersRepository implements IUsersRepository {
       password,
       id,
     });
-    await this.repository.save(user);
+
+    const errors = await validate(user);
+
+    if (errors.length > 0) {
+      console.log(errors);
+      throw new AppError("Validation Failed!");
+    }
+    else {
+      await this.repository.save(user);
+    }
   }
 
   async findByEmail(email: string): Promise<User> {

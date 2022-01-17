@@ -2,6 +2,8 @@ import { ICreateCarDTO } from "../../dtos/ICreateCarDTO";
 import { Car } from "../../entities/Car";
 import { ICarsRepository } from "../ICarsRepository";
 import { Equal, getRepository, Repository } from "typeorm";
+import { validate } from "class-validator";
+import { AppError } from "../../../../errors/AppError";
 
 class CarsRepository implements ICarsRepository {
   private repository: Repository<Car>;
@@ -32,7 +34,16 @@ class CarsRepository implements ICarsRepository {
       id,
       status
     });
-    await this.repository.save(car);
+
+    const errors = await validate(car);
+
+    if (errors.length > 0) {
+      console.log(errors);
+      throw new AppError("Validation failed for Car creation, verify the parameters");
+    }
+    else {
+      await this.repository.save(car);
+    }
   }
 
   async removeById(id: string): Promise<void> {
