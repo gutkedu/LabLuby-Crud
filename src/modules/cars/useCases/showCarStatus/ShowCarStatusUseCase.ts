@@ -4,7 +4,7 @@ import { Car } from "../../entities/Car";
 import { ICarsRepository } from "../../repositories/ICarsRepository";
 
 interface IRequest {
-  status: string | string[];
+  status: any;
 }
 
 @injectable()
