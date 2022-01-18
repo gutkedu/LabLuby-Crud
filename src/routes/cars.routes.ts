@@ -24,5 +24,8 @@ carsRoutes.delete("/", removeCarController.handle);
 
 carsRoutes.get("/:id", showCarController.handle);
 
+//carsRoutes.patch("/sell:store_id, carSoldController.handle")
+//carsRoutes.patch("/reserve:store_id, carReserveController.handle")
+
 
 export { carsRoutes }

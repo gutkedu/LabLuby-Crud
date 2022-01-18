@@ -17,8 +17,7 @@ class CreateCarUseCase {
     km,
     chassis,
     color,
-    price,
-    status
+    price
   }: ICreateCarDTO): Promise<void> {
     //const carAlreadyExist = await this.carsRepository.findById(id);
 
@@ -33,8 +32,7 @@ class CreateCarUseCase {
       km,
       chassis,
       color,
-      price,
-      status
+      price
     })
   }
 }

@@ -11,8 +11,8 @@ class CreateCarController {
       km,
       chassis,
       color,
-      price,
-      status } = request.body;
+      price
+       } = request.body;
 
     const createCarUseCase = container.resolve(CreateCarUseCase);
     await createCarUseCase.execute({
@@ -22,8 +22,7 @@ class CreateCarController {
       km,
       chassis,
       color,
-      price,
-      status
+      price
     });
 
     return response.status(201).send();

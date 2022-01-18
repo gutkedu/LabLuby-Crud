@@ -37,7 +37,8 @@ export class CreateCars1642108853663 implements MigrationInterface {
                     },
                     {
                         name: "status",
-                        type: "varchar"
+                        type: "varchar",
+                        default: "'Available'"
                     },
                     {
                         name: "color",

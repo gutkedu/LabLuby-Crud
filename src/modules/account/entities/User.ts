@@ -1,11 +1,12 @@
 import { v4 as uuidV4 } from "uuid"
-import { Column, CreateDateColumn, Entity, OneToMany, PrimaryColumn } from "typeorm"
-import { Car } from "../../cars/entities/Car";
+import { Column, CreateDateColumn, Entity, Index, JoinColumn, OneToMany, OneToOne, PrimaryColumn } from "typeorm"
 import { IsEmail, IsString, MaxLength, MinLength } from "class-validator";
+import { Store } from "../../store/entities/Store";
 
 @Entity("users")
 class User {
   @PrimaryColumn()
+  @Index({ unique: true })
   id?: string;
 
   @Column()
@@ -38,14 +39,14 @@ class User {
   @Column()
   isAdmin: boolean;
 
+  @OneToOne(() => Store, store => store.id)
+  store: Store;
+
   @CreateDateColumn()
   updated_at: Date;
 
   @CreateDateColumn()
   created_at: Date;
-
-  // @OneToMany(() => Car, car => car.id)
-  //cars: Car[];
 
   constructor() {
     if (!this.id) {

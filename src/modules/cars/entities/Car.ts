@@ -6,8 +6,8 @@ import {
   PrimaryColumn,
   ManyToOne,
 } from "typeorm"
-import { User } from "../../account/entities/User";
 import { IsInt, IsPositive, IsString, Max, MaxLength, Min, MinLength } from "class-validator";
+import { Store } from "../../store/entities/Store";
 
 @Entity("cars")
 class Car {
@@ -66,8 +66,8 @@ class Car {
   @CreateDateColumn()
   created_at: Date;
 
-  //@ManyToOne(() => User, user => user.id)
-  //user: User;
+  @ManyToOne(() => Store, store => store.id, { eager: true })
+  store: Store;
 
   constructor() {
     if (!this.id) {

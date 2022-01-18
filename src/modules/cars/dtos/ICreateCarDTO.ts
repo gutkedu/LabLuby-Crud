@@ -7,7 +7,7 @@ interface ICreateCarDTO {
   color: string;
   price: number;
   id?: string;
-  status: string;
+  status?: string;
 }
 
 export { ICreateCarDTO }
