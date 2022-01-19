@@ -32,7 +32,7 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/gutkedu/LabLuby-Crud>
+$ git clone https://github.com/gutkedu/LabLuby-Crud
 
 #Instalar as dependencias com yarn
 $ yarn install
@@ -52,7 +52,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [TypeScript](https://www.typescriptlang.org/)
 - [TSyringe](https://github.com/microsoft/tsyringe)
 - [Postgres](https://www.postgresql.org/)
-- [TypeORM](https://www.postgresql.org/)
+- [TypeORM](https://typeorm.io/#/)
 - [Express](https://expressjs.com/)
 - [JsonWebToken](https://jwt.io/)
 - [BcryptJs](https://www.npmjs.com/package/bcryptjs)
