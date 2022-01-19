@@ -29,7 +29,7 @@ usersRoutes.get("/",
   listUsersController.handle
 );
 
-usersRoutes.delete("/",
+usersRoutes.delete("/:id",
   ensureAuthentication,
   removeUserController.handle
 );

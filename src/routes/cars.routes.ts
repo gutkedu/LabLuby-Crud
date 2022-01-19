@@ -20,7 +20,7 @@ carsRoutes.post("/", createCarController.handle);
 
 carsRoutes.get("/", listCarsController.handle);
 
-carsRoutes.delete("/", removeCarController.handle);
+carsRoutes.delete("/:id", removeCarController.handle);
 
 carsRoutes.get("/:id", showCarController.handle);
 
