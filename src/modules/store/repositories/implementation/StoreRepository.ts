@@ -1,8 +1,9 @@
+import { validate } from "class-validator";
 import { getRepository, Repository } from "typeorm";
+import { AppError } from "../../../../errors/AppError";
 import { ICreateStoreDTO } from "../../dtos/ICreateStoreDTO";
 import { Store } from "../../entities/Store";
 import { IStoreRepository } from "../IStoreRepository";
-
 
 class StoreRepository implements IStoreRepository {
   private repository: Repository<Store>;
@@ -13,18 +14,38 @@ class StoreRepository implements IStoreRepository {
 
   async create({
     id,
-    user_id
+    userId,
+    carId,
+    new_price,
+    status,
   }: ICreateStoreDTO): Promise<void> {
     const store = this.repository.create({
-      user_id
+      new_price,
+      id,
+      userId,
+      carId,
+      status
     });
+
+    const errors = await validate(store);
+    if (errors.length > 0) {
+      console.log(errors);
+      throw new AppError("Validation Failed!");
+    }
+    else {
+      await this.repository.save(store);
+    }
   }
 
-
-  list(): Promise<Store[]> {
-    throw new Error("Method not implemented.");
+  async list(): Promise<Store[]> {
+    const store = await this.repository.find();
+    return store;
   }
 
+  async findById({ id }: ICreateStoreDTO): Promise<Store> {
+    const store = await this.repository.findOne(id);
+    return store;
+  }
 }
 
 export { StoreRepository }

@@ -16,16 +16,12 @@ const showCarStatusController = new ShowCarStatusController();
 
 carsRoutes.post("/", createCarController.handle);
 
-carsRoutes.get("/status", showCarStatusController.handle);
+//carsRoutes.get("/status", showCarStatusController.handle);
 
 carsRoutes.get("/", listCarsController.handle);
 
 carsRoutes.delete("/", removeCarController.handle);
 
 carsRoutes.get("/:id", showCarController.handle);
-
-//carsRoutes.patch("/sell:store_id, carSoldController.handle")
-//carsRoutes.patch("/reserve:store_id, carReserveController.handle")
-
 
 export { carsRoutes }

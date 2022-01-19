@@ -6,9 +6,9 @@ interface ICarsRepository {
   removeById(id: string): Promise<void>;
   list(): Promise<Car[]>;
   findById(id: string): Promise<Car>;
-  findStatusSold(status: string): Promise<Car[]>;
-  findStatusAvailable(status: string): Promise<Car[]>;
-  findStatusReserved(status: string): Promise<Car[]>;
+  //findStatusSold(status: string): Promise<Car[]>;
+  //findStatusAvailable(status: string): Promise<Car[]>;
+  //findStatusReserved(status: string): Promise<Car[]>;
 }
 
 export { ICarsRepository }

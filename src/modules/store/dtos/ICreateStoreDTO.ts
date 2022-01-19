@@ -1,6 +1,9 @@
 interface ICreateStoreDTO {
   id?: string;
-  user_id?: string;
+  userId?: any;
+  carId?: any;
+  new_price: number;
+  status: string;
 }
 
 export { ICreateStoreDTO }

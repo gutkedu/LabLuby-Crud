@@ -20,8 +20,7 @@ class CarsRepository implements ICarsRepository {
     chassis,
     color,
     price,
-    id,
-    status
+    id
   }: ICreateCarDTO): Promise<void> {
     const car = this.repository.create({
       brand,
@@ -31,8 +30,7 @@ class CarsRepository implements ICarsRepository {
       chassis,
       color,
       price,
-      id,
-      status
+      id
     });
 
     const errors = await validate(car);
@@ -61,6 +59,7 @@ class CarsRepository implements ICarsRepository {
     return car;
   }
 
+  /*
   async findStatusSold(status: string): Promise<Car[]> {
     const car = await this.repository.find({
       status: Equal("Sold"),
@@ -81,6 +80,7 @@ class CarsRepository implements ICarsRepository {
     });
     return car;
   }
+  */
 
 }
 

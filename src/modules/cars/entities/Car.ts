@@ -5,6 +5,8 @@ import {
   Entity,
   PrimaryColumn,
   ManyToOne,
+  OneToOne,
+  Index,
 } from "typeorm"
 import { IsInt, IsPositive, IsString, Max, MaxLength, Min, MinLength } from "class-validator";
 import { Store } from "../../store/entities/Store";
@@ -12,6 +14,7 @@ import { Store } from "../../store/entities/Store";
 @Entity("cars")
 class Car {
   @PrimaryColumn()
+  @Index({ unique: true })
   id?: string;
 
   @Column()
@@ -55,18 +58,13 @@ class Car {
   @Max(10000000)
   price: number;
 
-  @Column()
-  @IsString()
-  @MaxLength(20)
-  status: string;
-
   @CreateDateColumn()
   updated_at: Date;
 
   @CreateDateColumn()
   created_at: Date;
 
-  @ManyToOne(() => Store, store => store.id, { eager: true })
+  @OneToOne(() => Store, store => store.id, { eager: true })
   store: Store;
 
   constructor() {

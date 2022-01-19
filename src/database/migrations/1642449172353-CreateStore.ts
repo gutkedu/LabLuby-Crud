@@ -16,6 +16,19 @@ export class CreateStore1642449172353 implements MigrationInterface {
                         type: "uuid"
                     },
                     {
+                        name: "new_price",
+                        type: "int"
+                    },
+                    {
+                        name: "carId",
+                        type: "uuid"
+                    },
+                    {
+                        name: "status",
+                        type: "varchar",
+                        isNullable: true,
+                    },
+                    {
                         name: "updated_at",
                         type: "timestamp",
                         default: "now()"

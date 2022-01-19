@@ -7,15 +7,25 @@ import { Car } from "../../cars/entities/Car";
 @Entity("store")
 class Store {
   @PrimaryColumn()
-  @Index({ unique: true })
   id?: string;
 
   @OneToOne(() => User, user => user.id, { eager: true })
   @JoinColumn()
-  user: User;
+  userId: User;
 
-  @OneToMany(() => Car, car => car.id)
-  cars: Car[];
+  @OneToOne(() => Car, car => car.id, { eager: true })
+  @JoinColumn()
+  carId: Car;
+
+  @Column()
+  @IsPositive()
+  @IsInt()
+  new_price: number;
+
+  @Column()
+  @IsString()
+  @MaxLength(20)
+  status: string;
 
   @CreateDateColumn()
   updated_at: Date;

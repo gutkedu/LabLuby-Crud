@@ -8,6 +8,7 @@ import { CreateUserController } from "../modules/account/useCases/createUser/Cre
 import { ListUsersController } from "../modules/account/useCases/listUsers/ListUsersController";
 import { RemoveUserController } from "../modules/account/useCases/removeUser/RemoveUserController";
 import { UpdateUserAvatarController } from "../modules/account/useCases/updateUserAvatar/UpdateUserAvatarController";
+import { UpdateUserInfoController } from "../modules/account/useCases/updateUserInfo/UpdateUserInfoController";
 
 const usersRoutes = Router();
 
@@ -17,6 +18,7 @@ const createUserController = new CreateUserController();
 const listUsersController = new ListUsersController();
 const removeUserController = new RemoveUserController();
 const updateUserAvatarController = new UpdateUserAvatarController();
+const updateUserInfoController = new UpdateUserInfoController();
 
 usersRoutes.post("/", createUserController.handle);
 
@@ -34,6 +36,11 @@ usersRoutes.patch("/avatar",
   ensureAuthentication,
   uploadAvatar.single("avatar"),
   updateUserAvatarController.handle
+);
+
+usersRoutes.put("/:id",
+  ensureAuthentication,
+  updateUserInfoController.handle
 );
 
 export { usersRoutes }
