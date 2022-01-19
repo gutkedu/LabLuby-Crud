@@ -11,15 +11,15 @@ class ReserveCarUseCase {
 
   async execute({
     new_price,
-    userId,
-    carId,
+    user,
+    car,
     status
   }: ICreateStoreDTO): Promise<void> {
 
     await this.storeRepository.create({
       new_price,
-      userId,
-      carId,
+      user,
+      car,
       status
     });
   }

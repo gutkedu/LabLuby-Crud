@@ -4,14 +4,14 @@ import { ReserveCarUseCase } from "./ReserveCarUseCase";
 
 class ReserveCarController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { new_price, status, userId, carId } = request.body;
+    const { new_price, status, user, car } = request.body;
     const reserveCarUseCase = container.resolve(ReserveCarUseCase);
 
     await reserveCarUseCase.execute({
       new_price,
       status,
-      userId,
-      carId
+      user,
+      car
     });
 
     return response.status(201).send();

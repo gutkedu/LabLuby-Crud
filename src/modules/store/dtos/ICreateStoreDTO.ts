@@ -1,7 +1,7 @@
 interface ICreateStoreDTO {
   id?: string;
-  userId?: any;
-  carId?: any;
+  user?: any;
+  car?: any;
   new_price: number;
   status: string;
 }

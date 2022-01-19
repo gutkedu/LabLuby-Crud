@@ -1,8 +1,9 @@
-import { IsInt, IsPositive, IsString, MaxLength } from "class-validator";
-import { Column, CreateDateColumn, Entity, Index, JoinColumn, OneToMany, OneToOne, PrimaryColumn } from "typeorm";
+import { IsInt, IsPositive, IsString, IsUUID, MaxLength } from "class-validator";
+import { Column, CreateDateColumn, Entity, Index, IsNull, JoinColumn, OneToMany, OneToOne, PrimaryColumn } from "typeorm";
 import { v4 as uuidV4 } from "uuid"
 import { User } from "../../account/entities/User";
 import { Car } from "../../cars/entities/Car";
+
 
 @Entity("store")
 class Store {
@@ -10,12 +11,14 @@ class Store {
   id?: string;
 
   @OneToOne(() => User, user => user.id, { eager: true })
-  @JoinColumn()
-  userId: User;
+  @JoinColumn({ name: "user_id" })
+  @IsUUID()
+  user: User;
 
   @OneToOne(() => Car, car => car.id, { eager: true })
-  @JoinColumn()
-  carId: Car;
+  @JoinColumn({ name: "car_id" })
+  @IsUUID()
+  car: Car;
 
   @Column()
   @IsPositive()

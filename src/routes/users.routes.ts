@@ -5,6 +5,7 @@ import uploadConfig from "../config/upload";
 import { ensureAuthentication } from "../middlewares/ensureAuthentication";
 
 import { CreateUserController } from "../modules/account/useCases/createUser/CreateUserController";
+import { ListUserByIdController } from "../modules/account/useCases/listUserById/ListUserByIdController";
 import { ListUsersController } from "../modules/account/useCases/listUsers/ListUsersController";
 import { RemoveUserController } from "../modules/account/useCases/removeUser/RemoveUserController";
 import { UpdateUserAvatarController } from "../modules/account/useCases/updateUserAvatar/UpdateUserAvatarController";
@@ -19,6 +20,7 @@ const listUsersController = new ListUsersController();
 const removeUserController = new RemoveUserController();
 const updateUserAvatarController = new UpdateUserAvatarController();
 const updateUserInfoController = new UpdateUserInfoController();
+const listUserByIdController = new ListUserByIdController();
 
 usersRoutes.post("/", createUserController.handle);
 
@@ -41,6 +43,11 @@ usersRoutes.patch("/avatar",
 usersRoutes.put("/:id",
   ensureAuthentication,
   updateUserInfoController.handle
+);
+
+usersRoutes.get("/:id",
+  ensureAuthentication,
+  listUserByIdController.handle
 );
 
 export { usersRoutes }

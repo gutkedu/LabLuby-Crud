@@ -14,16 +14,16 @@ class StoreRepository implements IStoreRepository {
 
   async create({
     id,
-    userId,
-    carId,
+    user,
+    car,
     new_price,
     status,
   }: ICreateStoreDTO): Promise<void> {
     const store = this.repository.create({
       new_price,
       id,
-      userId,
-      carId,
+      user,
+      car,
       status
     });
 
@@ -38,13 +38,20 @@ class StoreRepository implements IStoreRepository {
   }
 
   async list(): Promise<Store[]> {
-    const store = await this.repository.find();
+    const store = await this.repository.find({
+      relations: ['']
+    });
     return store;
   }
 
   async findById({ id }: ICreateStoreDTO): Promise<Store> {
     const store = await this.repository.findOne(id);
     return store;
+  }
+
+  async findByUserId({ user }: ICheckUserInStoreDTO): Promise<Store> {
+    const userStore = await this.repository.findOne(user);
+    return userStore;
   }
 }
 

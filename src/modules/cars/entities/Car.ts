@@ -10,6 +10,7 @@ import {
 } from "typeorm"
 import { IsInt, IsPositive, IsString, Max, MaxLength, Min, MinLength } from "class-validator";
 import { Store } from "../../store/entities/Store";
+import { User } from "../../account/entities/User";
 
 @Entity("cars")
 class Car {
@@ -64,7 +65,7 @@ class Car {
   @CreateDateColumn()
   created_at: Date;
 
-  @OneToOne(() => Store, store => store.id, { eager: true })
+  @OneToOne(() => Store, store => store.id)
   store: Store;
 
   constructor() {

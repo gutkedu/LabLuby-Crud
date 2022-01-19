@@ -12,16 +12,8 @@ export class CreateStore1642449172353 implements MigrationInterface {
                         type: "uuid"
                     },
                     {
-                        name: "userId",
-                        type: "uuid"
-                    },
-                    {
                         name: "new_price",
                         type: "int"
-                    },
-                    {
-                        name: "carId",
-                        type: "uuid"
                     },
                     {
                         name: "status",
