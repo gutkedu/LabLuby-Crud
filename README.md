@@ -18,7 +18,7 @@
 - [x] Vender carro - Rota (post): urlbase/store/sell
 - [x] Reservar carro - Rota (post): urlbase/store/reserve
 - [x] Listar Store - Rota (get): urlbase/store
-- [x] Mostrar Carros de funcionario- Rota (get): urlbase/store/:id
+- [x] Mostrar Carros de funcionario- Rota (get): urlbase/store/:user
 
 Ps: As rotas estao todas disponiveis para utilizacao com o app Insomnia (https://insomnia.rest/) na pasta Insomnia.
 
